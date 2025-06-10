@@ -15,8 +15,11 @@ connectDB()
 connectCloudinary()
 
 // middlewares
-app.use(cors({ origin: "https://madhudesigns.com" })); // or your frontend domain
+app.use(cors({ 
+  origin: ["http://madhudesigns.com", "http://admin.madhudesigns.com"] // Updated to use madhudesigns.com and admin.madhudesigns.com
+}));
 app.use(express.json());
+
 
 
 // api endpoints
