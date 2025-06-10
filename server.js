@@ -16,7 +16,7 @@ connectCloudinary()
 
 // middlewares
 app.use(cors({ 
-  origin: ["https://madhudesigns.com", "https://admin.madhudesigns.com","http://localhost:5173"] // Updated to use madhudesigns.com and admin.madhudesigns.com
+  origin: ["https://madhudesigns.com", "https://admin.madhudesigns.com","http://localhost:5173", "http://localhost:5174"] // Updated to use madhudesigns.com and admin.madhudesigns.com
 }));
 app.use(express.json());
 
