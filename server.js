@@ -26,7 +26,7 @@ app.use(cors({
     'https://madhudesigns.com',
     'https://admin.madhudesigns.com',
     'http://localhost:5173',
-    'http://localhost:5173'
+    'http://localhost:5174'
   ],
   credentials: true
 }));
