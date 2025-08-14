@@ -9,48 +9,42 @@ import productRouter from './routes/productRoute.js';
 import cartRouter from './routes/cartRoute.js';
 import orderRouter from './routes/orderRoute.js';
 
-// Initialize Express App
 const app = express();
 const port = process.env.PORT || 4000;
 
-// Connect to Database and Cloudinary
+// DB & Cloudinary
 connectDB();
 connectCloudinary();
 
-// Trust proxy (for cookies & headers when behind a reverse proxy)
+// Trust reverse proxy (e.g. for secure cookies)
 app.set('trust proxy', 1);
 
-// CORS Middleware
+// CORS Setup
 app.use(cors({
-  origin: [
-    'https://madhudesigns.com',
-    'https://admin.madhudesigns.com',
-    'http://localhost:5173',
-    'http://localhost:5174'
-  ],
+  origin: ['https://admin.madhudesigns.com', 'https://madhudesigns.com', 'http://localhost:5173', 'http://localhost:5174'],
   credentials: true
 }));
 
-// Body parser middleware
+// JSON parsing
 app.use(express.json());
 
-// API Routes
+// Routes
 app.use('/api/user', userRouter);
 app.use('/api/product', productRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 
-// Health Check
+// Health check route
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok', message: 'API is healthy 🚀' });
+  res.status(200).json({ status: 'ok', message: 'API is healthy' });
 });
 
-// Root Route
+// Root route
 app.get('/', (req, res) => {
-  res.send('API Working');
+  res.send('API is running');
 });
 
-// Start Server
+// Start server
 app.listen(port, () => {
-  console.log(`✅ Server started on PORT: ${port}`);
+  console.log(`✅ Server running on port ${port}`);
 });
