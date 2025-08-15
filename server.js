@@ -21,7 +21,7 @@ app.set('trust proxy', 1);
 
 // CORS Setup
 app.use(cors({
-  origin: ['https://admin.madhudesigns.com', 'https://mydigitalfield.in', 'https://madhudesigns.com', 'http://localhost:5173', 'http://localhost:5174'],
+  origin: ['https://madhuadmin.store', 'https://madhudesigns.com', 'http://localhost:5173'],
   credentials: true
 }));
 
